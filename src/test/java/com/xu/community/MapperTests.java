@@ -9,6 +9,7 @@ import com.xu.community.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -25,6 +26,11 @@ public class MapperTests {
 
     @Autowired
     private DiscussPostMapper discussPostMapper;
+    @Value("${community.path.domain}")
+    private String domain;
+
+    @Value("@{server.servlet.context-path}")
+    private String contextPath;
 
     @Test
     public void test(){
@@ -69,5 +75,10 @@ public class MapperTests {
         for(DiscussPost discussPost:discussPosts){
             System.out.println(discussPost);
         }
+    }
+    @Test
+    public void test5(){
+        System.out.println(domain);
+        System.out.println(contextPath);
     }
 }

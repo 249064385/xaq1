@@ -16,6 +16,18 @@ spring:
       maximum-pool-size: 15
       minimum-idle: 5
       idle-timeout: 30000
+  mail:
+    host: smtp.sina.com
+    port: 465
+    username: xaq1998biancheng@sina.com
+    password: 1579aaf81de3e3d4
+    protocol: smtps
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
@@ -25,7 +37,13 @@ mybatis:
     mapUnderscoreToCamelCase: true
 
 
-#日志调试crud
-logging:
-  level:
-    com.xu.community: debug
+# community
+community:
+  path:
+    domain: http://localhost:8080
+
+## @Value("${community.path.domain}")
+#    private String domain;
+#
+#    @Value("@{server.servlet.context-path}")
+#    private String contextPath;
